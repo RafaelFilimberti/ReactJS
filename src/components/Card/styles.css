@@ -1,0 +1,24 @@
+
+
+
+
+.card {
+    height: 100px; /* altura */
+    width: 50%; /* largura */
+
+    background: #735bf2;
+    color: #fff;
+
+    border-radius: 10px;
+    margin-bottom: 20px; /* separa as linhas 20 px pra baixo */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px; /* espaçamento dentro do flex/caixa */
+
+}
+
+.card strong {
+    font-size: 18px;
+}
