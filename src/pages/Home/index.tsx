@@ -5,14 +5,27 @@ import React, { useState, useEffect } from 'react';
 
 import './styles.css'
 
-import {Card} from '../../components/Card'
+import {Card, CardProps} from '../../components/Card'
+
+type ProfileResponse = {
+  name: string;
+  avatar_url: string;
+}
+
+
+type User = {
+  name: string;
+  avatar: string;
+
+}
+
 
 export function Home() {
   const [studentName, setStudentName] = useState(''); /* Estado tem 2 elementos,  padrão para declarar Estado [nome do estado"studentName"", função que atualiza o estado"setStudentName""] */
 
-  const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState<CardProps[]>([]);
 
-  const [user, setUser] = useState({name: '', avatar:''});
+  const [user, setUser] = useState<User>({} as User);
 
 function handleAddStudent() { /* Toda vez que chamar essa função vai criar um objeto com 2 propriedades, o nome que vai pegar do estado, informado pelo usuário no input. e o time vai ser o horário atual*/
   const newStudent = {
@@ -38,8 +51,9 @@ useEffect(() => {
 //async no useEffect
 async function fetchData() {
   const response = await fetch('https://api.github.com/users/rafaelFilimberti')
-const data = await response.json();
-console.log("Dados ===>", data);
+const data = await response.json() as ProfileResponse;
+/* console.log("Dados ===>", data); */
+
 
 setUser({
   name: data.name,

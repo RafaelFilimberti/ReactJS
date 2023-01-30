@@ -2,7 +2,13 @@
 
 import './styles.css'
 
-export function Card(props) {
+
+export type CardProps = {
+    name: string;
+    time: string;
+}
+
+export function Card(props: CardProps) {
     /* props , através desse objeto podemos acessar as propriedades
     {name , time} pode usar sem o props.
     */
